@@ -4,7 +4,7 @@ import 'package:http/http.dart'
 import 'Food.dart';
 
 class Services {
-  static const ROOT = 'http://localhost/server/data_action.php';
+  static var ROOT = Uri.parse('http://localhost/serverFlutter/data_actions.php');
   static const _CREATE_TABLE_ACTION = 'CREATE_TABLE';
   static const _GET_ALL_ACTION = 'GET_ALL';
   static const _ADD_DATA_ACTION = 'ADD_DATA';

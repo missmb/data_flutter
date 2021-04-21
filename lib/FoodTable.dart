@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Food.dart';
 import 'Services.dart';
+// import 'dart:async';
 
 class FoodTable extends StatefulWidget {
   FoodTable() : super();
@@ -11,7 +12,9 @@ class FoodTable extends StatefulWidget {
 
 class FoodTableState extends State<FoodTable> {
   List<Food> _foods;
-  GlobalObjectKey<ScaffoldState> _scaffoldKey;
+  // GlobalObjectKey<ScaffoldState> _scaffoldKey;
+   GlobalKey<ScaffoldState> _scaffoldKey;
+  //  GlobalKey<ScaffoldState> _scaffoldkey = new GlobalKey<ScaffoldState>();
   TextEditingController _usernameController; //Control username TextField
   TextEditingController _foodController; //Control username TextField
   Food _selectedFood;
@@ -24,7 +27,8 @@ class FoodTableState extends State<FoodTable> {
     _foods = [];
     _isUpdating = false;
     _titleProgress = widget.title;
-    _scaffoldKey = GlobalKey(); // Key to get the context to shoe a SnackBar
+    // _scaffoldKey = GlobalKey(); // Key to get the context to shoe a SnackBar
+     _scaffoldKey = new GlobalKey<ScaffoldState>();
     _usernameController = TextEditingController();
     _foodController = TextEditingController();
   }
@@ -44,11 +48,12 @@ class FoodTableState extends State<FoodTable> {
     );
   }
 
-  _creteTable() {
+  _createTable() {
     _showProgress('Creating Table...');
     Services.createTable().then((result) {
       if ('success' == result) {
         _showSnackBar(context, result);
+        _showProgress(widget.title);
       }
     });
   }
