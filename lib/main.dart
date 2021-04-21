@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'FoodTable.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(new HomeApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -108,6 +109,17 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class HomeApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Favorite Food',
+      home: new FoodTable(),
     );
   }
 }
