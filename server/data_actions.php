@@ -3,7 +3,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "data_flutter";
-$table ="Data";
+$table ="Food";
 
 // get actions from the app to do operations in the database ...
 $action = $_POST["action"];
